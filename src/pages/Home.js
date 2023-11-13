@@ -2,11 +2,6 @@ import iconChat from '../assets/img/icon-chat.png'
 import iconMoney from '../assets/img/icon-money.png'
 import iconSecurity from '../assets/img/icon-security.png'
 
-/**
- *
- * @returns {React.ReactElement} JSX.Element - the user main page
- */
-
 function Home() {
   return (
     <main>

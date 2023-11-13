@@ -2,63 +2,32 @@ import axios from 'axios'
 import { URL_LOGIN } from '../config'
 
 /**
- * Function to get user datas login
- * @param {Objet} credientials user's credentials
- * @param {String} credientials.email user's email
- * @param {String} credientials.password user's password
- * @returns {Promise<any>} Promise with user datas
+ * Fonction pour obtenir les données de connexion de l'utilisateur.
+ * @param {Object} credentials - Identifiants de l'utilisateur.
+ * @param {String} credentials.email - Adresse e-mail de l'utilisateur.
+ * @param {String} credentials.password - Mot de passe de l'utilisateur.
+ * @returns {Promise<any>} - Promesse contenant les données de l'utilisateur.
  */
-
-export async function userLogin(credientials) {
+export async function userLogin(credentials) {
   return new Promise(async (resolve, reject) => {
     try {
-      const res = await axios.post(URL_LOGIN, credientials)
+      // Appel à l'API pour la connexion avec les identifiants fournis.
+      const res = await axios.post(URL_LOGIN, credentials)
+      
+      // Récupération du token d'authentification.
       const token = res.data.body.token
+      
+      // Configuration des en-têtes Axios avec le token d'authentification, si disponible.
       if (token)
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      else delete axios.defaults.headers.common['Authorization']
+      else 
+        delete axios.defaults.headers.common['Authorization']
+
+      // Résolution de la promesse avec les données de l'utilisateur.
       resolve(res.data)
     } catch (error) {
+      // Rejet de la promesse en cas d'erreur.
       reject(error)
     }
   })
 }
-
-/*
-export async function UserLogin(credientials) {
-  const dispatch = useDispatch()
-  const { isLoading, isAuth, error, isRemember } = useSelector(
-    (state) => state.login
-  )
-  try {
-    dispatch(logingPending()) // Start request
-    // Check credentials and get jwt
-    const responseLogin = await axios.post(URL_LOGIN, credientials)
-    const token = responseLogin.data.body.token
-    // Remember is checked
-    if (isRemember) localStorage.setItem('token', token)
-    else localStorage.removeItem('token')
-    // Set Axios token
-    setAuthorizationToken(token)
-    dispatch(logingSuccess()) // End request
-    //dispatch(notificationSend({ icon: "link", type: "success", message: "You are connected" }))// Notif
-    //dispatch({ type: AUTH_LOGIN, payload: {token} })
-    //const responseProfile = await axios.post('/user/profile')
-    //const user = responseProfile.data.body
-    //dispatch({ type: AUTH_SET_USER, payload: {user} })
-
-    if (isAuth.status === 400 || isAuth.status === 500) {
-      return dispatch(logingError(isAuth.message))
-    }
-  } catch (error) {
-    console.log(error)
-    dispatch(logingSuccess()) // End request
-    dispatch(logingError(error.response.data.message))
-  }
-}
-
-function setAuthorizationToken(token) {
-  if (token) axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-  else delete axios.defaults.headers.common['Authorization']
-}
-*/
