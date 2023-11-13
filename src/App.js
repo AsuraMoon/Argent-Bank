@@ -21,7 +21,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <Header />
-        <section className="elementsToDisplay">
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/loginPage/signIn" element={<SignIn />} />
@@ -30,7 +30,7 @@ function App() {
             </Route>
             <Route path="*" element={<Error />} />
           </Routes>
-        </section>
+
         <Footer />
       </Router>
     </Provider>

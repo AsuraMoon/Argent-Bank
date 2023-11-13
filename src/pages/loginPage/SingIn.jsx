@@ -73,7 +73,7 @@ function SingIn() {
   // Rendu du composant SingIn.
   return (
     <>
-      <main className="main bg-dark">
+      <main className="main background-dark">
         <section className="sign-in-content">
           <i className="fa fa-user-circle sign-in-icon"></i>
           <h1>Sign In</h1>

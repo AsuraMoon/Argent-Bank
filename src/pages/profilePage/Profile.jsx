@@ -46,7 +46,7 @@ function Profile() {
 
   // Rendu du composant Profile.
   return (
-    <main className="main bg-dark">
+    <main className="main background-dark">
       {/* Inclusion du composant d'en-tête utilisateur */}
       <UserHeader />
 

@@ -15,9 +15,11 @@ body {
 
 .main {
   flex: 1;
+  height: 93vh;
+  padding-top: 15px;
 }
 
-.bg-dark {
+.background-dark {
   background-color: #12002b;
 }
 
@@ -105,7 +107,7 @@ body {
 
 .hero-content .subtitle {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
 }
 
@@ -213,6 +215,12 @@ body {
   color: #fff;
 }
 
+.elementsToDisplay{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 93vh;
+}
 
 .sign-in-content {
   box-sizing: border-box;
@@ -252,10 +260,14 @@ body {
 }
 
 .footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: white;
   display: flex;
   justify-content: center;
   border-top: 2px solid #ccc;
-  padding: 2rem 0 1.5rem;
+  padding: 32px 0 24px;
 }
 
 .footer-text {
