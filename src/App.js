@@ -24,6 +24,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/AsuraMoon/Argent-Bank" element={<Home />} />
             <Route path="/loginPage/signIn" element={<SignIn />} />
             <Route path="/profilePage/Profile" element={<PrivateRoute />}>
               <Route path="/profilePage/Profile" element={<Profile />} />
