@@ -36,6 +36,9 @@ function Profile() {
       if (isRemember) {
         localStorage.setItem('firstName', data.body.firstName)
         localStorage.setItem('lastName', data.body.lastName)
+        localStorage.setItem('saving', data.body.saving)
+        localStorage.setItem('checking', data.body.checking)
+        localStorage.setItem('credit', data.body.credit)
       } else {
         // Suppression des prénoms du stockage local si "Se souvenir de moi" n'est pas activé.
         localStorage.removeItem('firstName')
