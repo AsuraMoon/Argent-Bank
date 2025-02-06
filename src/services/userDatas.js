@@ -10,6 +10,7 @@ export async function userDatas() {
     try {
       const res = await axios.post(URL_PROFILE)
       resolve(res.data)
+      console.log(res.data)
     } catch (error) {
       reject(error)
     }

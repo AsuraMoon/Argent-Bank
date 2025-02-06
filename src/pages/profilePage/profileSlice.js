@@ -5,6 +5,9 @@ const initialState = {
   isLoading: false,    // Indique si une opération liée au profil est en cours.
   firstName: '',       // Prénom de l'utilisateur.
   lastName: '',        // Nom de l'utilisateur.
+  checking: 0,       // checking de l'utilisateur.
+  saving: 0,       // saving de l'utilisateur.
+  credit: 0,       // credit de l'utilisateur.
   error: '',           // Stocke les éventuelles erreurs liées au profil.
 }
 
@@ -29,6 +32,21 @@ const profileSlice = createSlice({
       state.lastName = action.payload
       state.error = ''    // Réinitialise toute erreur précédente.
     },
+    profileChecking: (state, action) => {
+      state.isLoading = false
+      state.checking = action.payload
+      state.error = ''    // Réinitialise toute erreur précédente.
+    },
+    profileSaving: (state, action) => {
+      state.isLoading = false
+      state.saving = action.payload
+      state.error = ''    // Réinitialise toute erreur précédente.
+    },
+    profileCredit: (state, action) => {
+      state.isLoading = false
+      state.credit = action.payload
+      state.error = ''    // Réinitialise toute erreur précédente.
+    },
     // Reducer pour indiquer une erreur liée au profil.
     profileError: (state, action) => {
       state.isLoading = false
@@ -39,6 +57,9 @@ const profileSlice = createSlice({
       state.isLoading = false
       state.firstName = ''
       state.lastName = ''
+      state.checking = ''
+      state.saving = ''
+      state.credit = ''
       state.error = ''
     },
   },
@@ -52,6 +73,9 @@ export const {
   profilePending,
   profileFirstName,
   profileLastName,
+  profileChecking,
+  profileSaving,
+  profileCredit,
   profileError,
   profileOut,
 } = actions

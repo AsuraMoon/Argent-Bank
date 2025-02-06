@@ -20,6 +20,8 @@ function UserHeader() {
   // Récupération des prénoms stockés localement.
   const localStorageFirstName = localStorage.getItem('firstName')
   const localStorageLastName = localStorage.getItem('lastName')
+  const localStorageSaving = localStorage.getItem('saving')
+
 
   // Sélection des prénoms depuis le store Redux.
   const { firstName, lastName } = useSelector((state) => state.profile)

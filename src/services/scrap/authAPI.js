@@ -16,10 +16,6 @@ export async function login(credentials) {
     const { token } = response.data.body
     localStorage.setItem('authToken', token)
 
-    // Affichage dans la console à des fins de débogage.
-    console.log(response)
-    console.log(axios.defaults.headers.common)
-
     // Vérification de l'authenticité après l'authentification.
     if (isAuthenticated()) {
       return true

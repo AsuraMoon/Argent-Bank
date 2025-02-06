@@ -15,6 +15,9 @@ export function ClearLocalStorage() {
   localStorage.removeItem('token')
   localStorage.removeItem('firstName')
   localStorage.removeItem('lastName')
+  localStorage.removeItem('checking')
+  localStorage.removeItem('saving')
+  localStorage.removeItem('credit')
 
   // Appel de l'action logingOut à travers le dispatch pour déconnecter l'utilisateur.
   dispatch(logingOut())
